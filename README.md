@@ -38,7 +38,7 @@ O site poderá ser acessado através da URL: `http://127.0.0.1:5000/`.
 ## Interface com usuário
 
 
-<p align="center"><img src="(https://imgur.com/gallery/GECScfm)" style="width:55%;"/></p>
+<p align="center"><img src="[(https://imgur.com/gallery/GECScfm)](https://imgur.com/gallery/GECScfm)" style="width:55%;"/></p>
 
 
 ## Usuários de teste
