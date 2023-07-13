@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section">
+    
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2">{{turma_selected[2]}}</a>
+        <small class="text-muted">{{turma_selected[1]}}</small>
+        
+      </div>
+      <h2 class="article-title">{{turma_selected[3]}}</h2>
+      <p class="article-content">{{turma_selected[4]}}</p>
+    </div>
+  </article>
+
+  
+    <div class="container">
+      <h2 >Avalie essa turma!</h2>
+      <form method="post" action="{{ url_for('turma_selected.turma', turma_id=turma_selected[0]) }}">
+        <div class="form-group">
+          {{ form.hidden_tag() }}
+          {{  form.text() }}
+        </div>
+          <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info", id="inputField") }}
+        </div>
+    </form>
+      
+      {% for avaliacao in result %}
+      <div class="card border-dark mb-3" style="max-width: 100rem;">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <a href="{{ url_for('profile.get_profile', matricula=avaliacao[2]) }}"><b>{{ avaliacao[0] }}</b></a><b>- Comentou:</b>
+            </div>
+            {% if (session["user_matricula"] == avaliacao[2]) %}
+              <div class="col-auto">
+                <a href="{{ url_for('avaliacao_selected.update_avaliacao', avaliacao_id=avaliacao[3]) }}" class="btn btn-success btn-sm">Editar</a>
+              </div>
+            {% endif %}
+            {% if (session["user_matricula"] == avaliacao[2]) or session["user_permission"] %}
+              <div class="col-auto">
+                <a href="{{ url_for('avaliacao_selected.delete_avaliacao', avaliacao_id=avaliacao[3]) }}" class="btn btn-warning btn-sm">Excluir</a>
+              </div>
+            {% endif %}
+            {% if session["user_matricula"] != avaliacao[2] %}
+              <div class="col-auto">
+                <a  class="btn btn-danger btn-sm" href="{{ url_for('avaliacao_selected.denunciar_avaliacao', avaliacao_id=avaliacao[3]) }}">Denúnciar</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="card-body text-dark">
+          <p class="card-text">{{ avaliacao[1] }}</p>
+        </div>
+      </div>
+      
+      {% endfor %}
+    </div>
+
+  
+  
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for turma in turmas %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2">{{ turma[2] }}</a>
+              <small class="text-muted">{{ turma[1]}}</small>
+            </div>
+            
+            <h2><a class="article-title" href="{{ url_for('turma_selected.turma', turma_id=turma[0]) }}">{{ turma[3] }}</a></h2>
+            <p class="article-content">{{ turma[4]}}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

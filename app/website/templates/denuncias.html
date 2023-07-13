@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Denuncias</h1>
+  
+  {% for denuncia in denuncias %}
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Turma ID: {{ denuncia.turma_id }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Turma Período: {{ denuncia.turma_periodo }}</h6>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2">Professor: {{ denuncia.professor_nome }}</h6>
+      <h6 class="card-subtitle mb-2">Disciplina: {{ denuncia.disciplina_nome }}</h6>
+      <h6 class="card-subtitle mb-2">Departamento: {{ denuncia.departamento_nome }}</h6>
+      <h6 class="card-subtitle mb-2">Denunciado: <a href="{{ url_for('profile.get_profile', matricula=denuncia.denuncia_denunciado_user_matricula) }}">{{ denuncia.denunciado_user_name }}</a></h6>
+      <p class="card-text">Avaliação: {{ denuncia.avaliacao_descricao }}</p>
+      <p class="card-text">Número de Reports: {{ denuncia.denuncia_num_reports }}</p>
+      <div class="col">
+        <a class="btn btn-danger" href="{{ url_for('denuncias.delete_avaliacao_by_denuncia', denuncia_id=denuncia.denuncia_id, avaliacao_id=denuncia.avaliacao_id) }}">Excluir Avaliação</a>
+        <a class="btn btn-success" href="{{ url_for('denuncias.delete_denuncia', denuncia_id=denuncia.denuncia_id) }}">Excluir Denúncia</a>
+       </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+{% endblock %}

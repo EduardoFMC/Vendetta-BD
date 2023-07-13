@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Suas Avaliações</h1>
+
+    {% for avaliacao in avaliacoes %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href=" {{ url_for('turma_selected.turma', turma_id=avaliacao[2]) }} ">{{avaliacao[3]}} | {{avaliacao[5]}} | {{avaliacao[4]}} </a>
+                
+            </div>
+            
+            <p class="article-content">{{avaliacao[1]}}</p>
+
+            <!-- Separate content from buttons -->
+            <div class="content-separator"></div>
+            
+            <!-- Buttons -->
+            <div class="buttons-row">
+                <a class="btn btn-primary" href="{{ url_for('avaliacoes.update_avaliacao', avaliacao_id=avaliacao[0]) }}">Editar</a>
+                <a class="btn btn-danger" href="{{ url_for('avaliacoes.delete_avaliacao', avaliacao_id=avaliacao[0]) }}">Excluir</a>
+            </div>
+        </div> 
+    </article> 
+
+    {% endfor %}
+{% endblock content %}

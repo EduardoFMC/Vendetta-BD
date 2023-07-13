@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <h2 >Atualização de Avaliação</h2>
+    <form method="post" action="">
+      <div class="form-group">
+        {{ form.hidden_tag() }}
+        {{  form.text() }}
+      </div>
+        <div class="form-group">
+          {{ form.submit(class="btn btn-outline-info", id="inputField") }}
+      </div>
+  </form>
+    
+    
+    <h2 >Sua Antiga Avaliação</h2>
+      <div class="card border-dark mb-3" style="max-width: 100rem;">
+        
+        <div class="card-body text-dark">
+          
+          <p class="card-text">{{ avaliacao[1] }}</p>
+        </div>
+      </div>
+    
+  </div>
+
+{% endblock content %}
