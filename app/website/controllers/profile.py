@@ -44,7 +44,7 @@ def login():
             flash('Conta não existe.', category='error')
             
         
-    return render_template('login.html', title='Login', form=form, profile=False, session=session)
+    return render_template('login.html', title='Login', form=form, profile=False, login_register = True, session=session)
 
 @profile.route('/logout',  methods=['GET', 'POST'])
 @is_authenticated
@@ -102,7 +102,7 @@ def register():
         flash(f'Conta criada para {form.username.data}!', 'success')
         return redirect(url_for('avaliacoes.home'))
     
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=form, login_register = True, profile=False, session=session)
 
 @profile.route('/image/<int:imade_id>')
 def get_image(imade_id):

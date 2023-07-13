@@ -65,7 +65,7 @@
           {% endwith %}
           {% block content %}{% endblock %}
         </div>
-        {% if session.user_matricula and not profile %}
+        {% if not login_register %}
           <div class="image-section">
             <img class="rounded-circle account-img" src="/image/{{ user_profile.profile_picture }}">
             <p class="name-message">{{ user_profile.user_name }}</p>
