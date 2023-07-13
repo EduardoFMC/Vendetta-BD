@@ -13,7 +13,7 @@ Exemplo: `C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\pineapple.jpg`. <--
 
 As imagens estão na pasta `images`, pegue as imagens nesta pasta e transfira para a pasta segura.
 
-Após a criação do banco e encontro da pasta do SGBD, execute o script `populaBD.sql`. Mas antes, altere o `<coloque aquui o path, retire os <> e coloque mais um escape \ caso Windows>` do script para o da pasta segura
+Após a criação do banco e encontro da pasta do SGBD, execute o script `populaBD.sql`. Mas antes, altere o `<coloque aquui o path, retire os <> e coloque mais um escape \ caso Windows>` do script para o caminho da pasta segura
 encontrada.
 
 ## Executando o projeto
@@ -23,7 +23,7 @@ Altere o `MYSQL_USER` para o seu usuário.
 Altere o `MYSQL_PASSWORD` para a sua senha.
 
 
-Assim, há dois meio de executar o programa. Assumindo que o caminho do seu terminal aponte para a pasta anterior de app.
+Assim, há dois meio de executar o programa. Assumindo que o caminho do seu terminal aponte para a pasta acima de app.
 
 `
 python .\app\avalia.py
