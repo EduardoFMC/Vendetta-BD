@@ -7,7 +7,7 @@ O projeto foi feito utilizando o banco de dados MySQL. Para o uso do banco de da
 
 Execute o script `criaBD.sql` para criar o Banco `mydb`.
 
-Antes de executar a população do banco, existem dados binários BLOBL que devem ser inseridos. Para isso, insera as imagens na pasta segura disponibilizada pelo seu SGBD.
+Antes de executar a população do banco, existem dados binários BLOB que devem ser inseridos. Para isso, insera as imagens na pasta segura disponibilizada pelo seu SGBD.
 Para isso rode o script `SELECT @@secure_file_priv;` o que disponibilizará o path da pasta segura para inserção dos binários(imagens). AVISO: windows precisa de duas barras de escapes.
 Exemplo: `C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\pineapple.jpg`. <-- Windows.
 
