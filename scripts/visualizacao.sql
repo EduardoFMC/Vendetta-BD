@@ -1,5 +1,7 @@
 -- Utilize como Visualização
 
+use mydb;
+
 SELECT * FROM TurmaView;
 
 SELECT * FROM Image;
